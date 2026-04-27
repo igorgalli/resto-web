@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/igorgalli/resto-api.git'
+                checkout scm
             }
         }
 
