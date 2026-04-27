@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import jakarta.annotation.PostConstruct;
 
 import java.util.Arrays;
 import java.util.List;
@@ -29,6 +30,7 @@ public class DishService {
      * @return liste des plats
      */
     public List<DishDto> getAllDishes() {
+
         final String url = apiBaseUrl + "/dishes";
         final ResponseEntity<DishDto[]> response =
                 restTemplate.getForEntity(url, DishDto[].class);
@@ -84,5 +86,9 @@ public class DishService {
         restTemplate.delete(
                 apiBaseUrl + "/dishes/" + id
         );
+    }
+    @PostConstruct
+    public void init() {
+        System.out.println(">>> API URL = " + apiBaseUrl);
     }
 }
