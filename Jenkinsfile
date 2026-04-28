@@ -18,10 +18,7 @@ pipeline {
                 bat 'mvn clean package -DskipTests'
             }
         }
-        stage('Run') {
-            steps {
-                bat 'java -jar target\\pizzeria-web-0.0.1-SNAPSHOT.jar'
-            }
-        }
+
+
     }
 }
