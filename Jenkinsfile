@@ -48,15 +48,5 @@ pipeline {
                 bat 'docker push %IMAGE_NAME%:%IMAGE_TAG%'
             }
         }
-
-        stage('Run Container') {
-            steps {
-                bat '''
-                docker ps -q --filter "name=pizzeria-web" && docker stop pizzeria-web
-                docker ps -aq --filter "name=pizzeria-web" && docker rm pizzeria-web
-                docker run -d -p 8081:8081 --name pizzeria-web igorcardosogalli/pizzeria-web:latest
-                '''
-            }
-        }
     }
 }
