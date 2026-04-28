@@ -20,8 +20,7 @@ pipeline {
         }
         stage('Run') {
             steps {
-                bat 'dir target'
-                bat 'start /B java -jar target\\pizzeria-web-0.0.1-SNAPSHOT.jar'
+                bat 'java -jar target\\pizzeria-web-0.0.1-SNAPSHOT.jar'
             }
         }
     }
